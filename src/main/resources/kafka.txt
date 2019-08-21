@@ -1,0 +1,26 @@
+install kafka using this site 
+
+URL : https://tecadmin.net/install-apache-kafka-ubuntu/
+
+if any error happening on topic creation use this commands:
+
+sudo fuser -k 2181/tcp and then
+
+run zookeeper :
+
+	bin/zookeeper-server-start.sh config/zookeeper.properties
+
+run zookeeper :
+	
+	bin/kafka-server-start.sh config/server.properties 
+
+create Topic : bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic TutorialTopic
+
+list Topic :  bin/kafka-topics.sh --list --zookeeper localhost:2181
+
+Producer msg Topic : bin/kafka-console-producer.sh --broker-list localhost:9092 --topic testTopic
+
+consumer msg Topic : bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic testTopic --from-beginning [ FROM Beginning]
+
+consumer msg Topic : bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic testTopic [From now]
+
